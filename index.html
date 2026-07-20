@@ -1,42 +1,507 @@
-Privacy Policy — StackReady
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – StackReady</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #6C63FF;
+      --primary-dark: #4B44CC;
+      --secondary: #00BFA6;
+      --bg: #0F0F1A;
+      --surface: #1E1E2E;
+      --surface-2: #2A2A3E;
+      --text: #F1F5F9;
+      --text-muted: #94A3B8;
+      --border: #2D2D44;
+    }
 
-Last updated: July 21, 2025
+    * { box-sizing: border-box; }
 
-1. Introduction
-StackReady ("the App") is a free developer utility app built by [Your Name].
-This Privacy Policy explains our practices regarding data collection and usage.
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+    }
 
-2. Data We Collect
-StackReady does NOT collect, store, transmit, or share any personal data.
-The app works 100% offline. No internet connection is required to use the app.
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1E1E2E 0%, #16162A 60%, #1a1a2e 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
 
-3. Local Storage
-The app stores the following data LOCALLY on your device only:
-- Your checklist progress (which items you have checked)
-- Your bookmarked items
-- Your theme preference (light/dark)
-- Your language preference
-This data never leaves your device and is never transmitted to any server.
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(108,99,255,0.12) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      border-radius: 50%;
+    }
 
-4. Internet Permission
-The app requests INTERNET permission solely to open external documentation
-links in your device browser when you tap "View Docs" on a checklist item.
-No data is sent or received by the app itself over the internet.
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0,191,166,0.08) 0%, transparent 70%);
+      bottom: -80px; left: -80px;
+      border-radius: 50%;
+    }
 
-5. Third-Party Services
-StackReady does not use any third-party analytics, advertising SDKs,
-crash reporting tools, or tracking services. No third party receives
-any data from this app.
+    .app-icon {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 8px 32px rgba(108,99,255,0.35);
+      margin-bottom: 20px;
+    }
 
-6. Children's Privacy
-StackReady does not collect any data from anyone, including children
-under the age of 13. The app is safe for all ages.
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
 
-7. Changes to This Policy
-If we update this privacy policy, we will update the "Last updated"
-date at the top of this page.
+    .hero p.lead {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 520px;
+    }
 
-8. Contact Us
-If you have any questions about this Privacy Policy, contact us at:
-privacy@stackready.app
-(or your real email address)
+    .badge-updated {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,191,166,0.12);
+      color: var(--secondary);
+      border: 1px solid rgba(0,191,166,0.25);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    /* ── CONTENT ── */
+    .content-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 60px 20px 80px;
+    }
+
+    /* ── QUICK SUMMARY CARDS ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .summary-card:hover { border-color: var(--primary); }
+
+    .summary-card .icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .summary-card h6 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .summary-card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* ── SECTIONS ── */
+    .policy-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .policy-section:hover { border-color: rgba(108,99,255,0.4); }
+
+    .section-number {
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .policy-section p,
+    .policy-section li {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 8px;
+    }
+
+    .policy-section ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .policy-section ul li {
+      padding: 8px 0 8px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .policy-section ul li:last-child { border-bottom: none; }
+
+    .policy-section ul li::before {
+      content: '✓';
+      color: var(--secondary);
+      font-weight: 700;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .highlight-box {
+      background: rgba(108,99,255,0.08);
+      border: 1px solid rgba(108,99,255,0.2);
+      border-left: 3px solid var(--primary);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 14px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .highlight-box strong { color: var(--text); }
+
+    .teal-box {
+      background: rgba(0,191,166,0.07);
+      border: 1px solid rgba(0,191,166,0.2);
+      border-left: 3px solid var(--secondary);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 14px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* ── CONTACT ── */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(108,99,255,0.1), rgba(0,191,166,0.06));
+      border: 1px solid rgba(108,99,255,0.25);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .contact-card h5 {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .contact-card p { color: var(--text-muted); font-size: 0.9rem; }
+
+    .contact-card a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-card a:hover { color: var(--secondary); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 28px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    footer span { color: var(--primary); font-weight: 600; }
+
+    @media (max-width: 576px) {
+      .hero h1 { font-size: 1.6rem; }
+      .policy-section { padding: 22px; }
+      .summary-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="container text-center text-md-start">
+      <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start gap-4">
+        <div class="app-icon">⚡</div>
+        <div>
+          <div class="badge-updated">
+            📅 Last updated: July 21, 2025
+          </div>
+          <h1>Privacy Policy</h1>
+          <p class="lead">
+            StackReady is built with your privacy as the default.
+            No accounts. No tracking. No data collection. Ever.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MAIN CONTENT ── -->
+  <div class="content-wrapper">
+
+    <!-- Quick Summary Cards -->
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="icon">🚫</div>
+        <h6>No Data Collected</h6>
+        <p>We collect zero personal information from you</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">📴</div>
+        <h6>100% Offline</h6>
+        <p>App works fully offline, no server communication</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">🔒</div>
+        <h6>No Third Parties</h6>
+        <p>No analytics, ads, or tracking SDKs used</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">👶</div>
+        <h6>Safe for All Ages</h6>
+        <p>No data collected from anyone, including children</p>
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="policy-section">
+      <div class="section-title">
+        <span class="section-number">1</span> Introduction
+      </div>
+      <p>
+        StackReady ("the App", "we", "our") is a free developer utility application created to help
+        software developers set up their development environments faster using curated, offline checklists
+        and copy-paste-ready commands.
+      </p>
+      <p>
+        This Privacy Policy describes how StackReady handles information when you use our app.
+        By using StackReady, you agree to the practices described in this policy.
+      </p>
+      <div class="highlight-box">
+        <strong>Short version:</strong> StackReady does not collect, transmit, or share any personal
+        data. Everything stays on your device.
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="policy-section">
+      <div class="section-title">
+        <span class="section-number">2</span> Information We Collect
+      </div>
+      <p>
+        <strong style="color: var(--secondary);">We collect absolutely no personal information.</strong>
+        StackReady does not ask for your name, email, phone number, location, or any other
+        identifying information.
+      </p>
+      <p>The app does not require you to create an account or log in at any point.</p>
+      <div class="teal-box">
+        No forms, no sign-ups, no user profiles — StackReady is completely anonymous by design.
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="policy-section">
+      <div class="section-title">
+        <span class="section-number">3</span> Local Storage (On-Device Only)
+      </div>
+      <p>
+        StackReady stores the following data <strong style="color: var(--text);">locally on your device only</strong>
+        using Android/iOS local storage. This data never leaves your device:
+      </p>
+      <ul>
+        <li>Your checklist progress — which setup steps you have marked as completed</li>
+        <li>Your bookmarked checklist items — items you have saved for quick access</li>
+        <li>Your theme preference — whether you use light mode or dark mode</li>
+        <li>Your language preference — your selected app language</li>
+        <li>Onboarding status — whether you have seen the welcome screens</li>
+      </ul>
+      <div class="highlight-box">
+        <strong>Important:</strong> This locally stored data is only accessible by the StackReady app
+        on your device. It is never uploaded, synced, or transmitted anywhere.
+        You can clear this data at any time from the app's Settings screen.
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="policy-section">
+      <div class="section-title">
+        <span class="section-number">4</span> Internet Permission
+      </div>
+      <p>
+        StackReady requests the <code style="color: var(--secondary); background: var(--surface-2); padding: 2px 8px; border-radius: 4px;">INTERNET</code> permission
+        on Android. This permission is used <strong style="color: var(--text);">solely</strong> to open
+        external documentation links in your device's browser when you tap "View Docs" on a checklist item.
+      </p>
+      <p>
+        The StackReady app itself does <strong style="color: var(--text);">not</strong> make any
+        network requests, send any data to any server, or communicate with any backend service.
+      </p>
+      <div class="teal-box">
+        Opening a documentation link simply hands the URL to your phone's browser — StackReady
+        has no involvement in or visibility into what happens after that.
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="policy-section">
+      <div class="section-title">
+        <span class="section-number">5</span> Third-Party Services
+      </div>
+      <p>StackReady does <strong style="color: var(--text);">not</strong> integrate any of the following:</p>
+      <ul>
+        <li>Analytics or usage tracking (no Firebase Analytics, no Mixpanel, no Amplitude)</li>
+        <li>Advertising networks or ad SDKs</li>
+        <li>Crash reporting services (no Crashlytics, no Sentry)</li>
+        <li>Social login or OAuth providers</li>
+        <li>Payment processors</li>
+        <li>Cloud sync or backup services</li>
+        <li>Any other third-party SDK that collects user data</li>
+      </ul>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="policy-section">
+      <div class="section-title">
+        <span class="section-number">6</span> Children's Privacy
+      </div>
+      <p>
+        StackReady is a general-purpose developer utility app rated for Everyone.
+        The app does not collect any personal data from any user, including children under the age of 13
+        (or the applicable age of digital consent in your country).
+      </p>
+      <p>
+        Since no data is collected at all, StackReady is fully compliant with the
+        Children's Online Privacy Protection Act (COPPA) and similar regulations worldwide.
+      </p>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="policy-section">
+      <div class="section-title">
+        <span class="section-number">7</span> Data Security
+      </div>
+      <p>
+        Since StackReady does not collect or transmit any personal data, there is no
+        personal data at risk of a security breach on our end.
+      </p>
+      <p>
+        All data stored locally on your device is protected by your device's
+        built-in security mechanisms (screen lock, encryption, etc.).
+        We recommend keeping your device's operating system up to date for best security.
+      </p>
+    </div>
+
+    <!-- Section 8 -->
+    <div class="policy-section">
+      <div class="section-title">
+        <span class="section-number">8</span> Your Rights
+      </div>
+      <p>Since we collect no personal data, there is nothing for us to delete, export, or correct on our end. However, you have full control over your local app data:</p>
+      <ul>
+        <li>Clear all checklist progress from Settings → Clear All Progress</li>
+        <li>Remove all bookmarks from Settings → Clear Bookmarks</li>
+        <li>Uninstall the app to remove all locally stored data from your device</li>
+      </ul>
+    </div>
+
+    <!-- Section 9 -->
+    <div class="policy-section">
+      <div class="section-title">
+        <span class="section-number">9</span> Changes to This Privacy Policy
+      </div>
+      <p>
+        We may update this Privacy Policy from time to time. When we do, we will update the
+        "Last updated" date at the top of this page.
+      </p>
+      <p>
+        If we ever introduce a backend, account system, or any form of data collection in a future
+        version of the app, this policy will be updated before that version is published,
+        and users will be notified within the app.
+      </p>
+      <div class="highlight-box">
+        <strong>We will never collect personal data without updating this policy and notifying you first.</strong>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card">
+      <div style="font-size: 36px; margin-bottom: 12px;">✉️</div>
+      <h5>Questions or Concerns?</h5>
+      <p>
+        If you have any questions about this Privacy Policy or how StackReady handles data,
+        feel free to reach out.
+      </p>
+      <a href="mailto:privacy@stackready.app">privacy@stackready.app</a>
+      <br /><br />
+      <small style="color: var(--text-muted);">
+        We typically respond within 2–3 business days.
+      </small>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p class="mb-1">© 2025 <span>StackReady</span>. All rights reserved.</p>
+    <p class="mb-0">Built with ❤️ for developers, by a developer.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
